@@ -6,6 +6,12 @@ const App = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [lang, setLang] = useState<'th' | 'en'>('th'); // Default language is Thai
 
+  // ---------------------------------------------------------------------------
+  // 📞 ใส่เบอร์โทรศัพท์ที่นี่ (Enter your Phone Number here)
+  // ---------------------------------------------------------------------------
+  const PHONE_NUMBER = "02-323-0934";
+  // ---------------------------------------------------------------------------
+
   // Handle scroll for navbar transparency
   useEffect(() => {
     const handleScroll = () => {
@@ -157,15 +163,15 @@ const App = () => {
       {/* Font Import & Styles */}
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Kodchasan:wght@300;400;500;600;700&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap');
           
-          body, .font-kodchasan {
-            font-family: 'Kodchasan', sans-serif;
+          body, .font-prompt {
+            font-family: 'Prompt', sans-serif;
           }
         `}
       </style>
 
-      <div className="font-kodchasan">
+      <div className="font-prompt">
         {/* Navigation */}
         <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md py-4 shadow-lg border-b border-green-800' : 'bg-transparent py-6'}`}>
           <div className="container mx-auto px-4 flex justify-between items-center">
@@ -381,12 +387,12 @@ const App = () => {
                   </a>
 
                   {/* Simulated Phone Button */}
-                  <button
-                    onClick={() => alert("กรุณาใส่เบอร์โทรศัพท์จริงของคุณในโค้ด")}
+                  <a
+                    href={`tel:${PHONE_NUMBER}`}
                     className="bg-black/30 backdrop-blur border border-white/30 text-white hover:bg-black/50 font-bold py-4 px-10 rounded-full text-lg flex items-center justify-center gap-3 transition-all"
                   >
                     <Phone size={24} /> {content.contact.btn_call}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
